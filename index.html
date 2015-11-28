@@ -55,7 +55,11 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#discordphp">DiscordPHP</a></li>
+                <li class="toctree-l3"><a href="#welcome">Welcome</a></li>
+                
+                    <li><a class="toctree-l4" href="#install">Install</a></li>
+                
+                    <li><a class="toctree-l4" href="#first-use">First Use</a></li>
                 
             
             </ul>
@@ -95,8 +99,35 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="discordphp">DiscordPHP</h1>
-<p>Welcome to the DiscordPHP documentation!</p>
+                <h1 id="welcome">Welcome</h1>
+<p>Welcome to the DiscordPHP documentation! This is still a work in progress and will improve once the API has been finished.</p>
+<p>To start off, view the <code>Install</code> section below.</p>
+<h2 id="install">Install</h2>
+<p>To install DiscordPHP you need to be using <a href="https://getcomposer.org">Composer</a>. Composer is a free and easy package dependency manager.</p>
+<p>Once you have Composer installed into your project, type the following into your console:</p>
+<pre><code>$ composer require team-reflex/discord-php
+</code></pre>
+
+<p>If you haven't used Composer before, now is the time you would include the Composer autoload file:</p>
+<pre><code class="php">&lt;?php
+
+include 'vendor/autoload.php';
+</code></pre>
+
+<h2 id="first-use">First Use</h2>
+<p>Once you have DiscordPHP installed, the first thing to do is authenticate with the Discord servers:</p>
+<pre><code class="php">&lt;?php
+
+use Discord\Discord;
+
+$discord = new Discord(':email-address', ':password');
+</code></pre>
+
+<p>If you don't want to have your Email or Password in plain text, you can use a Composer package called <code>PhpDotEnv</code> or you can find you Discord token and enter it as a third parameter like so:</p>
+<pre><code class="php">$discord = new Discord(null, null, ':token');
+</code></pre>
+
+<p>From here you can interact with the <code>Client</code> class, which has more information on other pages.</p>
               
             </div>
           </div>
@@ -133,5 +164,5 @@
 
 <!--
 MkDocs version : 0.14.0
-Build Date UTC : 2015-11-28 01:08:17.936189
+Build Date UTC : 2015-11-28 01:19:19.656914
 -->

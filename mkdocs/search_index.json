@@ -2,13 +2,23 @@
     "docs": [
         {
             "location": "/", 
-            "text": "DiscordPHP\n\n\nWelcome to the DiscordPHP documentation!", 
+            "text": "Welcome\n\n\nWelcome to the DiscordPHP documentation! This is still a work in progress and will improve once the API has been finished.\n\n\nTo start off, view the \nInstall\n section below.\n\n\nInstall\n\n\nTo install DiscordPHP you need to be using \nComposer\n. Composer is a free and easy package dependency manager.\n\n\nOnce you have Composer installed into your project, type the following into your console:\n\n\n$ composer require team-reflex/discord-php\n\n\n\n\nIf you haven't used Composer before, now is the time you would include the Composer autoload file:\n\n\n?php\n\ninclude 'vendor/autoload.php';\n\n\n\n\nFirst Use\n\n\nOnce you have DiscordPHP installed, the first thing to do is authenticate with the Discord servers:\n\n\n?php\n\nuse Discord\\Discord;\n\n$discord = new Discord(':email-address', ':password');\n\n\n\n\nIf you don't want to have your Email or Password in plain text, you can use a Composer package called \nPhpDotEnv\n or you can find you Discord token and enter it as a third parameter like so:\n\n\n$discord = new Discord(null, null, ':token');\n\n\n\n\nFrom here you can interact with the \nClient\n class, which has more information on other pages.", 
             "title": "Home"
         }, 
         {
-            "location": "/#discordphp", 
-            "text": "Welcome to the DiscordPHP documentation!", 
-            "title": "DiscordPHP"
+            "location": "/#welcome", 
+            "text": "Welcome to the DiscordPHP documentation! This is still a work in progress and will improve once the API has been finished.  To start off, view the  Install  section below.", 
+            "title": "Welcome"
+        }, 
+        {
+            "location": "/#install", 
+            "text": "To install DiscordPHP you need to be using  Composer . Composer is a free and easy package dependency manager.  Once you have Composer installed into your project, type the following into your console:  $ composer require team-reflex/discord-php  If you haven't used Composer before, now is the time you would include the Composer autoload file:  ?php\n\ninclude 'vendor/autoload.php';", 
+            "title": "Install"
+        }, 
+        {
+            "location": "/#first-use", 
+            "text": "Once you have DiscordPHP installed, the first thing to do is authenticate with the Discord servers:  ?php\n\nuse Discord\\Discord;\n\n$discord = new Discord(':email-address', ':password');  If you don't want to have your Email or Password in plain text, you can use a Composer package called  PhpDotEnv  or you can find you Discord token and enter it as a third parameter like so:  $discord = new Discord(null, null, ':token');  From here you can interact with the  Client  class, which has more information on other pages.", 
+            "title": "First Use"
         }
     ]
 }
