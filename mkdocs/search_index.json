@@ -2,8 +2,8 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome\n\n\nWelcome to the DiscordPHP documentation! This is still a work in progress and will improve once the API has been finished.\n\n\nTo start off, view the \nInstall\n section below.\n\n\nInstall\n\n\nTo install DiscordPHP you need to be using \nComposer\n. Composer is a free and easy package dependency manager.\n\n\nOnce you have Composer installed into your project, type the following into your console:\n\n\n$ composer require team-reflex/discord-php\n\n\n\n\nIf you haven't used Composer before, now is the time you would include the Composer autoload file:\n\n\n?php\n\ninclude 'vendor/autoload.php';\n\n\n\n\nFirst Use\n\n\nOnce you have DiscordPHP installed, the first thing to do is authenticate with the Discord servers:\n\n\n?php\n\nuse Discord\\Discord;\n\n$discord = new Discord(':email-address', ':password');\n\n\n\n\nIf you don't want to have your Email or Password in plain text, you can use a Composer package called \nPhpDotEnv\n or you can find you Discord token and enter it as a third parameter like so:\n\n\n$discord = new Discord(null, null, ':token');\n\n\n\n\nFrom here you can interact with the \nClient\n class, which has more information on other pages.", 
-            "title": "Home"
+            "text": "Welcome\n\n\nWelcome to the DiscordPHP documentation! This is still a work in progress and will improve once the API has been finished.\n\n\nTo start off, view the \nInstall\n section below.\n\n\nInstall\n\n\nTo install DiscordPHP you need to be using \nComposer\n. Composer is a free and easy package dependency manager.\n\n\nOnce you have Composer installed into your project, type the following into your console:\n\n\n$ composer require team-reflex/discord-php\n\n\n\n\nIf you haven't used Composer before, now is the time you would include the Composer autoload file:\n\n\n?php\n\ninclude 'vendor/autoload.php';\n\n\n\n\nFirst Use\n\n\nOnce you have DiscordPHP installed, the first thing to do is authenticate with the Discord servers:\n\n\n?php\n\nuse Discord\\Discord;\n\n$discord = new Discord(':email-address', ':password');\n\n\n\n\nIf you don't want to have your Email or Password in plain text, you can use a Composer package called \nPhpDotEnv\n or you can find you Discord token and enter it as a third parameter like so:\n\n\n$discord = new Discord(null, null, ':token');\n\n\n\n\nFrom here you can interact with the \nClient\n class, which has more information on other pages.\n\n\nDiscord\n class usage\n\n\nLogging out\n\n\nTo log out of Discord, use the following function.\n\n\n$discord = new Discord();\n$discord-\nlogout();\n\n\n\n\nAccepting invites\n\n\nYou can accept instant invites by doing the following.\n\n\n$discord = new Discord();\n$discord-\nacceptInvite(':code');\n\n\n\n\nNote:\n Using the full URL will not work. You need to only enter in the actual code.", 
+            "title": "Index"
         }, 
         {
             "location": "/#welcome", 
@@ -19,6 +19,136 @@
             "location": "/#first-use", 
             "text": "Once you have DiscordPHP installed, the first thing to do is authenticate with the Discord servers:  ?php\n\nuse Discord\\Discord;\n\n$discord = new Discord(':email-address', ':password');  If you don't want to have your Email or Password in plain text, you can use a Composer package called  PhpDotEnv  or you can find you Discord token and enter it as a third parameter like so:  $discord = new Discord(null, null, ':token');  From here you can interact with the  Client  class, which has more information on other pages.", 
             "title": "First Use"
+        }, 
+        {
+            "location": "/#discord-class-usage", 
+            "text": "", 
+            "title": "Discord class usage"
+        }, 
+        {
+            "location": "/#logging-out", 
+            "text": "To log out of Discord, use the following function.  $discord = new Discord();\n$discord- logout();", 
+            "title": "Logging out"
+        }, 
+        {
+            "location": "/#accepting-invites", 
+            "text": "You can accept instant invites by doing the following.  $discord = new Discord();\n$discord- acceptInvite(':code');  Note:  Using the full URL will not work. You need to only enter in the actual code.", 
+            "title": "Accepting invites"
+        }, 
+        {
+            "location": "/user/client/", 
+            "text": "Client\n\n\nThe client class is the base of the API.\n\n\nAttributes\n\n\n\n\nid\n The currently logged in user's ID.\n\n\nusername\n The currently logged in user's username.\n\n\nemail\n The currently logged in user's email.\n\n\nverified\n Wether the currently logged in user has verified their account.\n\n\navatar\n The currently logged in user's avatar URL.\n\n\n\n\ndiscriminator\n Distinguishes between two users with the same username.\n\n\n\n\n\n\nuser\n The \nUser\n instance of the client.\n\n\n\n\nguilds\n The guilds (servers) that the currently logged in user has joined.\n\n\navatar_id\n The currently logged in user's avatar ID.\n\n\n\n\nFunctions\n\n\nNo functions are currently available for the client class.", 
+            "title": "Client"
+        }, 
+        {
+            "location": "/user/client/#client", 
+            "text": "The client class is the base of the API.", 
+            "title": "Client"
+        }, 
+        {
+            "location": "/user/client/#attributes", 
+            "text": "id  The currently logged in user's ID.  username  The currently logged in user's username.  email  The currently logged in user's email.  verified  Wether the currently logged in user has verified their account.  avatar  The currently logged in user's avatar URL.   discriminator  Distinguishes between two users with the same username.    user  The  User  instance of the client.   guilds  The guilds (servers) that the currently logged in user has joined.  avatar_id  The currently logged in user's avatar ID.", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/user/client/#functions", 
+            "text": "No functions are currently available for the client class.", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/user/user/", 
+            "text": "User\n\n\nThe user class is the base for any user that exists in any guild you are apart of.\n\n\nAttributes\n\n\n\n\nid\n The identifier of the user.\n\n\nusername\n The username of the user.\n\n\navatar\n The avater URL of the user.\n\n\n\n\ndiscriminator\n Distinguishes between two users with the same username.\n\n\n\n\n\n\navatar_id\n The avatar ID of the user.\n\n\n\n\n\n\nFunctions\n\n\nUser@sendMessage\n\n\nSends a message to the user. Returns a \nMessage\n.\n\n\n\n\n$message\n    \nstring\n    The message to send to the user.\n\n\n$tts\n        \nboolean\n   If the message is sent as talk-to-speech.   Default \nfalse\n.\n\n\n\n\n$user-\nsendMessage('Hello world!', false);\n\n\n\n\nUser@broadcastTyping\n\n\nBroadcasts that you are typing to the user.\n\n\n$user-\nbroadcastTyping();", 
+            "title": "User"
+        }, 
+        {
+            "location": "/user/user/#user", 
+            "text": "The user class is the base for any user that exists in any guild you are apart of.", 
+            "title": "User"
+        }, 
+        {
+            "location": "/user/user/#attributes", 
+            "text": "id  The identifier of the user.  username  The username of the user.  avatar  The avater URL of the user.   discriminator  Distinguishes between two users with the same username.    avatar_id  The avatar ID of the user.", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/user/user/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/user/user/#usersendmessage", 
+            "text": "Sends a message to the user. Returns a  Message .   $message      string     The message to send to the user.  $tts          boolean    If the message is sent as talk-to-speech.   Default  false .   $user- sendMessage('Hello world!', false);", 
+            "title": "User@sendMessage"
+        }, 
+        {
+            "location": "/user/user/#userbroadcasttyping", 
+            "text": "Broadcasts that you are typing to the user.  $user- broadcastTyping();", 
+            "title": "User@broadcastTyping"
+        }, 
+        {
+            "location": "/user/member/", 
+            "text": "Member\n\n\nThe member class is a link between a \nUser\n and a \nGuild\n.\n\n\nAttributes\n\n\n\n\nuser\n The \nUser\n instance of the member.\n\n\nguild\n The \nGuild\n instance of the member.\n\n\ndeaf\n The users state of deaf.\n\n\nmute\n The users state of mute.\n\n\njoined_at\n A \nDateTime\n instance of when the \nUser\n joined the \nGuild\n.\n\n\nguild_id\n The ID of the \nGuild\n the member belongs to.\n\n\n\n\nFunctions\n\n\nMember@kick\n\n\nKicks the member from the Guild. Alias for \nPart@delete\n.\n\n\n$member-\nkick();", 
+            "title": "Member"
+        }, 
+        {
+            "location": "/user/member/#member", 
+            "text": "The member class is a link between a  User  and a  Guild .", 
+            "title": "Member"
+        }, 
+        {
+            "location": "/user/member/#attributes", 
+            "text": "user  The  User  instance of the member.  guild  The  Guild  instance of the member.  deaf  The users state of deaf.  mute  The users state of mute.  joined_at  A  DateTime  instance of when the  User  joined the  Guild .  guild_id  The ID of the  Guild  the member belongs to.", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/user/member/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/user/member/#memberkick", 
+            "text": "Kicks the member from the Guild. Alias for  Part@delete .  $member- kick();", 
+            "title": "Member@kick"
+        }, 
+        {
+            "location": "/guild/guild/", 
+            "text": "Guild\n\n\nThe guild is Discord's name for Server.\n\n\nAttributes\n\n\n\n\nid\n The identifier for the Guild.\n\n\nname\n The name for the Guild.\n\n\nicon\n The icon for the Guild.\n\n\nregion\n The region the Guild's voice server is hosted in.\n\n\nowner\n The owner of the Guild.\n\n\njoined_at\n A \nDateTime\n instance of when the current user joined the guild.\n\n\nafk_channel_id\n The channel ID of the AFK voice channel.\n\n\nafk_timeout\n How long you timeout of the AFK voice channel.\n\n\nembed_enabled\n If the Discord embed is enabled on this Guild.\n\n\n\n\nembed_channel_id\n The ID of the channel that is embedded.\n\n\n\n\n\n\nroles\n An array of \nRoles\n that belong to the Guild.\n\n\n\n\nchannels\n An array of \nChannels\n that belong to the Guild.\n\n\nmembers\n An array of \nMembers\n that belong to the Guild.\n\n\nbans\n An array of \nBans\n that belong to the Guild.\n\n\nowner_id\n The owner ID of the guild.\n\n\n\n\nConstants\n\n\n\n\nREGION_DEFAULT\n The default region for new servers, currently \nREGION_US_WEST\n.\n\n\nREGION_US_WEST\n West Coast, United States.\n\n\nREGION_US_EAST\n East Coast, United States.\n\n\nREGION_SINGAPORE\n Singapore.\n\n\nREGION_LONDON\n London, United Kingdom.\n\n\nREGION_SYDNEY\n Sydney, Australia.\n\n\nREGION_AMSTERDAM\n Amsterdam, Netherlands\n\n\n\n\nFunctions\n\n\nGuild@validateRegion\n\n\nValidates the set region and returns it if it is valid, otherwise returns the default.\n\n\n$guild-\nvalidateRegion();", 
+            "title": "Guild"
+        }, 
+        {
+            "location": "/guild/guild/#guild", 
+            "text": "The guild is Discord's name for Server.", 
+            "title": "Guild"
+        }, 
+        {
+            "location": "/guild/guild/#attributes", 
+            "text": "id  The identifier for the Guild.  name  The name for the Guild.  icon  The icon for the Guild.  region  The region the Guild's voice server is hosted in.  owner  The owner of the Guild.  joined_at  A  DateTime  instance of when the current user joined the guild.  afk_channel_id  The channel ID of the AFK voice channel.  afk_timeout  How long you timeout of the AFK voice channel.  embed_enabled  If the Discord embed is enabled on this Guild.   embed_channel_id  The ID of the channel that is embedded.    roles  An array of  Roles  that belong to the Guild.   channels  An array of  Channels  that belong to the Guild.  members  An array of  Members  that belong to the Guild.  bans  An array of  Bans  that belong to the Guild.  owner_id  The owner ID of the guild.", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/guild/guild/#constants", 
+            "text": "REGION_DEFAULT  The default region for new servers, currently  REGION_US_WEST .  REGION_US_WEST  West Coast, United States.  REGION_US_EAST  East Coast, United States.  REGION_SINGAPORE  Singapore.  REGION_LONDON  London, United Kingdom.  REGION_SYDNEY  Sydney, Australia.  REGION_AMSTERDAM  Amsterdam, Netherlands", 
+            "title": "Constants"
+        }, 
+        {
+            "location": "/guild/guild/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/guild/guild/#guildvalidateregion", 
+            "text": "Validates the set region and returns it if it is valid, otherwise returns the default.  $guild- validateRegion();", 
+            "title": "Guild@validateRegion"
+        }, 
+        {
+            "location": "/guild/role/", 
+            "text": "Roles", 
+            "title": "Role"
+        }, 
+        {
+            "location": "/guild/role/#roles", 
+            "text": "", 
+            "title": "Roles"
         }
     ]
 }

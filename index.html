@@ -50,21 +50,89 @@
         <ul class="current">
           
             <li>
+    <ul class="subnav">
+    <li><span>Home</span></li>
+
+        
+            
     <li class="toctree-l1 current">
-        <a class="current" href=".">Home</a>
+        <a class="current" href=".">Index</a>
         
             <ul>
             
                 <li class="toctree-l3"><a href="#welcome">Welcome</a></li>
                 
-                    <li><a class="toctree-l4" href="#install">Install</a></li>
+            
+                <li class="toctree-l3"><a href="#install">Install</a></li>
                 
-                    <li><a class="toctree-l4" href="#first-use">First Use</a></li>
+            
+                <li class="toctree-l3"><a href="#first-use">First Use</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#discord-class-usage">Discord class usage</a></li>
+                
+                    <li><a class="toctree-l4" href="#logging-out">Logging out</a></li>
+                
+                    <li><a class="toctree-l4" href="#accepting-invites">Accepting invites</a></li>
                 
             
             </ul>
         
     </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>User</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="user/client/">Client</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="user/user/">User</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="user/member/">Member</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Guild</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="guild/guild/">Guild</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="guild/role/">Role</a>
+        
+    </li>
+
+        
+    </ul>
 <li>
           
         </ul>
@@ -88,8 +156,12 @@
     <li><a href=".">Docs</a> &raquo;</li>
     
       
+        
+          <li>Home &raquo;</li>
+        
+      
     
-    <li>Home</li>
+    <li>Index</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -102,7 +174,7 @@
                 <h1 id="welcome">Welcome</h1>
 <p>Welcome to the DiscordPHP documentation! This is still a work in progress and will improve once the API has been finished.</p>
 <p>To start off, view the <code>Install</code> section below.</p>
-<h2 id="install">Install</h2>
+<h1 id="install">Install</h1>
 <p>To install DiscordPHP you need to be using <a href="https://getcomposer.org">Composer</a>. Composer is a free and easy package dependency manager.</p>
 <p>Once you have Composer installed into your project, type the following into your console:</p>
 <pre><code>$ composer require team-reflex/discord-php
@@ -114,7 +186,7 @@
 include 'vendor/autoload.php';
 </code></pre>
 
-<h2 id="first-use">First Use</h2>
+<h1 id="first-use">First Use</h1>
 <p>Once you have DiscordPHP installed, the first thing to do is authenticate with the Discord servers:</p>
 <pre><code class="php">&lt;?php
 
@@ -128,10 +200,31 @@ $discord = new Discord(':email-address', ':password');
 </code></pre>
 
 <p>From here you can interact with the <code>Client</code> class, which has more information on other pages.</p>
+<h1 id="discord-class-usage"><code>Discord</code> class usage</h1>
+<h2 id="logging-out">Logging out</h2>
+<p>To log out of Discord, use the following function.</p>
+<pre><code class="php">$discord = new Discord();
+$discord-&gt;logout();
+</code></pre>
+
+<h2 id="accepting-invites">Accepting invites</h2>
+<p>You can accept instant invites by doing the following.</p>
+<pre><code class="php">$discord = new Discord();
+$discord-&gt;acceptInvite(':code');
+</code></pre>
+
+<p><strong>Note:</strong> Using the full URL will not work. You need to only enter in the actual code.</p>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user/client/" class="btn btn-neutral float-right" title="Client"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
   
 
   <hr/>
@@ -156,6 +249,8 @@ $discord = new Discord(':email-address', ':password');
       
       
       
+        <span style="margin-left: 15px"><a href="user/client/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
 
@@ -164,5 +259,5 @@ $discord = new Discord(':email-address', ':password');
 
 <!--
 MkDocs version : 0.14.0
-Build Date UTC : 2015-11-28 01:19:19.656914
+Build Date UTC : 2015-11-28 03:03:49.875086
 -->
