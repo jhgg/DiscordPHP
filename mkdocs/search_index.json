@@ -1,0 +1,14 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "DiscordPHP\n\n\nWelcome to the DiscordPHP documentation!", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#discordphp", 
+            "text": "Welcome to the DiscordPHP documentation!", 
+            "title": "DiscordPHP"
+        }
+    ]
+}
