@@ -25,17 +25,49 @@
 
 <p>An API to interact with the popular text and voice service Discord.</p>
 
-<p>The API is currently being reworked.</p>
+<h3>
+<a id="special-thanks" class="anchor" href="#special-thanks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Special Thanks</h3>
+
+<ul>
+<li>
+<a href="https://github.com/cboden">Chris Boden</a> for the WebSocket client that is based off <a href="https://github.com/ratchetphp/Pawl">RatchetPHP/Pawl</a>
+</li>
+</ul>
+
+<h3>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h3>
+
+<p>Todo list is available in the <a href="TODO.md"><code>TODO.md</code></a> file.</p>
+
+<h3>
+<a id="basic-websocket-client" class="anchor" href="#basic-websocket-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic WebSocket client</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">'</span>vendor/autoload.php<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">Discord\Discord</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">Discord\WebSockets\Event</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">Discord\WebSockets\WebSocket</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$discord</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Discord</span>(<span class="pl-s"><span class="pl-pds">'</span>:email<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>:password<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$websocket</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">WebSocket</span>(<span class="pl-smi">$discord</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$websocket</span><span class="pl-k">-&gt;</span>on(<span class="pl-c1">Event</span><span class="pl-k">::</span><span class="pl-c1">MESSAGE_CREATE</span>, <span class="pl-k">function</span> (<span class="pl-smi">$message</span>, <span class="pl-smi">$discord</span>, <span class="pl-smi">$new</span>) {</span>
+<span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>New message from {<span class="pl-smi">$message</span><span class="pl-k">-&gt;</span><span class="pl-smi">author</span><span class="pl-k">-&gt;</span><span class="pl-smi">username</span>}: {<span class="pl-smi">$message</span><span class="pl-k">-&gt;</span><span class="pl-smi">content</span>}<span class="pl-pds">"</span></span><span class="pl-k">.</span><span class="pl-c1">PHP_EOL</span>;</span>
+<span class="pl-s1">});</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$websocket</span><span class="pl-k">-&gt;</span>run();</span></pre></div>
+
+<h3>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
+
+<p>Documentation can be found <a href="https://teamreflex.github.io/DiscordPHP/">here</a>, however it is very basic at the moment. If you need more help please ask as it says below.</p>
 
 <h3>
 <a id="help" class="anchor" href="#help" aria-hidden="true"><span class="octicon octicon-link"></span></a>Help</h3>
 
 <p>If you need any help feel free to join the <a href="https://discord.gg/0SBTUU1wZTY56U7l">DiscordAPI Server</a> and ask in the <code>#php_discordphp</code> channel. Tag <code>@Uniquoooo</code> if you need any help specific to the API.</p>
-
-<h3>
-<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
-
-<p>Work will be started on documentation after the API has been finished. </p>
 
 <h3>
 <a id="other-libraries" class="anchor" href="#other-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other Libraries</h3>
