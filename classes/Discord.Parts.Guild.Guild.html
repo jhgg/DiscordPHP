@@ -1,0 +1,2615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Discord.html">\Discord</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">170</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1401560833"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1401560833" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-398329836"></a>
+                                <a href="../namespaces/Discord.html" style="margin-left: 30px; padding-left: 0">Discord</a>
+            </div>
+            <div id="namespace-398329836" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1262697162"></a>
+                                <a href="../namespaces/Discord.Exceptions.html" style="margin-left: 30px; padding-left: 0">Exceptions</a>
+            </div>
+            <div id="namespace-1262697162" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Exceptions.ContentTooLongException.html">ContentTooLongException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.DiscordRequestFailedException.html">DiscordRequestFailedException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.FileNotFoundException.html">FileNotFoundException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.InviteInvalidException.html">InviteInvalidException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.LoginFailedException.html">LoginFailedException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.PartRequestFailedException.html">PartRequestFailedException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.PasswordEmptyException.html">PasswordEmptyException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1327222603"></a>
+                                <a href="../namespaces/Discord.Helpers.html" style="margin-left: 30px; padding-left: 0">Helpers</a>
+            </div>
+            <div id="namespace-1327222603" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Helpers.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Helpers.Guzzle.html">Guzzle</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-869708818"></a>
+                                <a href="../namespaces/Discord.Parts.html" style="margin-left: 30px; padding-left: 0">Parts</a>
+            </div>
+            <div id="namespace-869708818" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1136841632"></a>
+                                <a href="../namespaces/Discord.Parts.Channel.html" style="margin-left: 30px; padding-left: 0">Channel</a>
+            </div>
+            <div id="namespace-1136841632" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.Channel.Channel.html">Channel</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Channel.Message.html">Message</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1350548000"></a>
+                                <a href="../namespaces/Discord.Parts.Guild.html" style="margin-left: 30px; padding-left: 0">Guild</a>
+            </div>
+            <div id="namespace-1350548000" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.Guild.Ban.html">Ban</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Guild.Guild.html">Guild</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Guild.Invite.html">Invite</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Guild.Role.html">Role</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1426627758"></a>
+                                <a href="../namespaces/Discord.Parts.Permissions.html" style="margin-left: 30px; padding-left: 0">Permissions</a>
+            </div>
+            <div id="namespace-1426627758" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.Permissions.ChannelPermission.html">ChannelPermission</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Permissions.Permission.html">Permission</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Permissions.RolePermission.html">RolePermission</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1710762085"></a>
+                                <a href="../namespaces/Discord.Parts.User.html" style="margin-left: 30px; padding-left: 0">User</a>
+            </div>
+            <div id="namespace-1710762085" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.User.Client.html">Client</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.User.Member.html">Member</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.User.User.html">User</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1793267611"></a>
+                                <a href="../namespaces/Discord.Parts.WebSockets.html" style="margin-left: 30px; padding-left: 0">WebSockets</a>
+            </div>
+            <div id="namespace-1793267611" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.WebSockets.PresenceUpdate.html">PresenceUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.WebSockets.TypingStart.html">TypingStart</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.Part.html">Part</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-68290621"></a>
+                                <a href="../namespaces/Discord.WebSockets.html" style="margin-left: 30px; padding-left: 0">WebSockets</a>
+            </div>
+            <div id="namespace-68290621" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-30657918"></a>
+                                <a href="../namespaces/Discord.WebSockets.Events.html" style="margin-left: 30px; padding-left: 0">Events</a>
+            </div>
+            <div id="namespace-30657918" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.ChannelCreate.html">ChannelCreate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.ChannelDelete.html">ChannelDelete</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.ChannelUpdate.html">ChannelUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildBanAdd.html">GuildBanAdd</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildBanRemove.html">GuildBanRemove</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildCreate.html">GuildCreate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildDelete.html">GuildDelete</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildMemberAdd.html">GuildMemberAdd</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildMemberRemove.html">GuildMemberRemove</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildMemberUpdate.html">GuildMemberUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildRoleCreate.html">GuildRoleCreate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildRoleDelete.html">GuildRoleDelete</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildRoleUpdate.html">GuildRoleUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildUpdate.html">GuildUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.MessageCreate.html">MessageCreate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.MessageDelete.html">MessageDelete</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.MessageUpdate.html">MessageUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.PresenceUpdate.html">PresenceUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.TypingStart.html">TypingStart</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.UserSettingsUpdate.html">UserSettingsUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.VoiceStateUpdate.html">VoiceStateUpdate</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.WebSockets.Event.html">Event</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Handlers.html">Handlers</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.WebSocket.html">WebSocket</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-127761002"></a>
+                                <a href="../namespaces/Discord.WSClient.html" style="margin-left: 30px; padding-left: 0">WSClient</a>
+            </div>
+            <div id="namespace-127761002" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.WSClient.Factory.html">Factory</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WSClient.WebSocket.html">WebSocket</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Discord.html">Discord</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Discord.Parts.Guild.html">\Discord\Parts\Guild</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Discord\Parts\Guild</small>Guild</h1>
+                    <p><em>A Guild is Discord&#039;s equivalent of a server. It contains all the Members, Channels, Roles, Bans etc.</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Discord.Parts.Part.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_find" class="">find()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_fill" class="">fill()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_fresh" class="">fresh()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_save" class="">save()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_delete" class="">delete()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_clearCache" class="">clearCache()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_checkForMutator" class="">checkForMutator()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_replaceWithVariables" class="">replaceWithVariables()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_uriReplace" class="">uriReplace()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_getAttribute" class="">getAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_setAttribute" class="">setAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_setCache" class="">setCache()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_offsetGet" class="">offsetGet()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_offsetExists" class="">offsetExists()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_offsetSet" class="">offsetSet()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_offsetUnset" class="">offsetUnset()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_serialize" class="">serialize()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_unserialize" class="">unserialize()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_jsonSerialize" class="">jsonSerialize()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method_getPublicAttributes" class="">getPublicAttributes()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method___toString" class="">__toString()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method___debugInfo" class="">__debugInfo()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method___get" class="">__get()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#method___set" class="">__set()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_leave" class="">leave()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_transferOwnership" class="">transferOwnership()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getMembersAttribute" class="">getMembersAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getRolesAttribute" class="">getRolesAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getOwnerAttribute" class="">getOwnerAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getChannelsAttribute" class="">getChannelsAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getBansAttribute" class="">getBansAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getIconAttribute" class="">getIconAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getIconHashAttribute" class="">getIconHashAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getSplashAttribute" class="">getSplashAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getSplashHashAttribute" class="">getSplashHashAttribute()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_validateRegion" class="">validateRegion()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getCreatableAttributes" class="">getCreatableAttributes()</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#method_getUpdatableAttributes" class="">getUpdatableAttributes()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_findable" class="">$findable</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_creatable" class="">$creatable</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_deletable" class="">$deletable</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_editable" class="">$editable</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_REGION_DEFAULT" class="">REGION_DEFAULT</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_REGION_US_WEST" class="">REGION_US_WEST</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_REGION_US_EAST" class="">REGION_US_EAST</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_REGION_SINGAPORE" class="">REGION_SINGAPORE</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_REGION_LONDON" class="">REGION_LONDON</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_REGION_SYDNEY" class="">REGION_SYDNEY</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_REGION_AMSTERDAM" class="">REGION_AMSTERDAM</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_LEVEL_OFF" class="">LEVEL_OFF</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_LEVEL_LOW" class="">LEVEL_LOW</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_LEVEL_MEDIUM" class="">LEVEL_MEDIUM</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#constant_LEVEL_TABLEFLIP" class="">LEVEL_TABLEFLIP</a><br />
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#property_fillable" class="">$fillable</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_extra_fillable" class="">$extra_fillable</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_attributes" class="">$attributes</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_attributes_cache" class="">$attributes_cache</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_hidden" class="">$hidden</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#property_uris" class="">$uris</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_created" class="">$created</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_deleted" class="">$deleted</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_regex" class="">$regex</a><br />
+                                                                    <a href="../classes/Discord.Parts.Part.html#property_fillAfterSave" class="">$fillAfterSave</a><br />
+                                                                    <a href="../classes/Discord.Parts.Guild.Guild.html#property_regions" class="">$regions</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Parts.Guild.Guild.html"><div class="path-wrapper">Parts/Guild/Guild.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper"><a href="../classes/Discord.Parts.Part.html">\Discord\Parts\Part</a></div>
+                                                                                                    <div class="namespace-wrapper">\Discord\Parts\Guild\Guild</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                                    <a id="constants" name="constants"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Constants</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_REGION_DEFAULT" name="constant_REGION_DEFAULT" class="anchor"></a>
+            <article id="constant_REGION_DEFAULT" class="constant">
+                <h3 class="">REGION_DEFAULT</h3>
+                <pre class="signature">REGION_DEFAULT</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_REGION_US_WEST" name="constant_REGION_US_WEST" class="anchor"></a>
+            <article id="constant_REGION_US_WEST" class="constant">
+                <h3 class="">REGION_US_WEST</h3>
+                <pre class="signature">REGION_US_WEST</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_REGION_US_EAST" name="constant_REGION_US_EAST" class="anchor"></a>
+            <article id="constant_REGION_US_EAST" class="constant">
+                <h3 class="">REGION_US_EAST</h3>
+                <pre class="signature">REGION_US_EAST</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_REGION_SINGAPORE" name="constant_REGION_SINGAPORE" class="anchor"></a>
+            <article id="constant_REGION_SINGAPORE" class="constant">
+                <h3 class="">REGION_SINGAPORE</h3>
+                <pre class="signature">REGION_SINGAPORE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_REGION_LONDON" name="constant_REGION_LONDON" class="anchor"></a>
+            <article id="constant_REGION_LONDON" class="constant">
+                <h3 class="">REGION_LONDON</h3>
+                <pre class="signature">REGION_LONDON</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_REGION_SYDNEY" name="constant_REGION_SYDNEY" class="anchor"></a>
+            <article id="constant_REGION_SYDNEY" class="constant">
+                <h3 class="">REGION_SYDNEY</h3>
+                <pre class="signature">REGION_SYDNEY</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_REGION_AMSTERDAM" name="constant_REGION_AMSTERDAM" class="anchor"></a>
+            <article id="constant_REGION_AMSTERDAM" class="constant">
+                <h3 class="">REGION_AMSTERDAM</h3>
+                <pre class="signature">REGION_AMSTERDAM</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LEVEL_OFF" name="constant_LEVEL_OFF" class="anchor"></a>
+            <article id="constant_LEVEL_OFF" class="constant">
+                <h3 class="">LEVEL_OFF</h3>
+                <pre class="signature">LEVEL_OFF</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LEVEL_LOW" name="constant_LEVEL_LOW" class="anchor"></a>
+            <article id="constant_LEVEL_LOW" class="constant">
+                <h3 class="">LEVEL_LOW</h3>
+                <pre class="signature">LEVEL_LOW</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LEVEL_MEDIUM" name="constant_LEVEL_MEDIUM" class="anchor"></a>
+            <article id="constant_LEVEL_MEDIUM" class="constant">
+                <h3 class="">LEVEL_MEDIUM</h3>
+                <pre class="signature">LEVEL_MEDIUM</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LEVEL_TABLEFLIP" name="constant_LEVEL_TABLEFLIP" class="anchor"></a>
+            <article id="constant_LEVEL_TABLEFLIP" class="constant">
+                <h3 class="">LEVEL_TABLEFLIP</h3>
+                <pre class="signature">LEVEL_TABLEFLIP</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_findable" name="property_findable" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$findable</h3>
+                <pre class="signature">$findable : boolean</pre>
+                <p><em>Is the part findable?</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                &mdash; Whether the part is findable.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_creatable" name="property_creatable" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$creatable</h3>
+                <pre class="signature">$creatable : boolean</pre>
+                <p><em>Is the part creatable?</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                &mdash; Whether the part is creatable.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_deletable" name="property_deletable" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$deletable</h3>
+                <pre class="signature">$deletable : boolean</pre>
+                <p><em>Is the part deletable?</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                &mdash; Whether the part is deletable.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_editable" name="property_editable" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$editable</h3>
+                <pre class="signature">$editable : boolean</pre>
+                <p><em>Is the part editable?</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                &mdash; Whether the part is editable.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_fillable" name="property_fillable" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$fillable</h3>
+                <pre class="signature">$fillable : array</pre>
+                <p><em>The parts fillable attributes.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; The array of attributes that can be mass-assigned.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_extra_fillable" name="property_extra_fillable" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$extra_fillable</h3>
+                <pre class="signature">$extra_fillable : array</pre>
+                <p><em>Extra fillable defined by the base part.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; Extra attributes that can be mass-assigned.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_attributes" name="property_attributes" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$attributes</h3>
+                <pre class="signature">$attributes : array</pre>
+                <p><em>The parts attributes.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; The parts attributes and content.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_attributes_cache" name="property_attributes_cache" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$attributes_cache</h3>
+                <pre class="signature">$attributes_cache : array</pre>
+                <p><em>The parts attributes cache.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; Attributes which are cached such as parts that are retrieved over REST.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_hidden" name="property_hidden" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$hidden</h3>
+                <pre class="signature">$hidden : array</pre>
+                <p><em>Attributes that are hidden from debug info.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; Attributes that are hidden from public.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_uris" name="property_uris" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$uris</h3>
+                <pre class="signature">$uris : array</pre>
+                <p><em>URIs used to get/create/update/delete the part.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; Contains URIs to modify the part.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_created" name="property_created" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$created</h3>
+                <pre class="signature">$created : boolean</pre>
+                <p><em>Is the part already created in the Discord servers?</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                &mdash; Whether the part has been created.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_deleted" name="property_deleted" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$deleted</h3>
+                <pre class="signature">$deleted : boolean</pre>
+                <p><em>Is the part deleted in the Discord servers?</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                &mdash; Whether the part has been deleted.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_regex" name="property_regex" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$regex</h3>
+                <pre class="signature">$regex : string</pre>
+                <p><em>The regex pattern to replace variables with.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                &mdash; The regex which is used to replace placeholders.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_fillAfterSave" name="property_fillAfterSave" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$fillAfterSave</h3>
+                <pre class="signature">$fillAfterSave : boolean</pre>
+                <p><em>Should we fill the part after saving?</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                &mdash; Whether the part will be saved after being filled.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_regions" name="property_regions" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$regions</h3>
+                <pre class="signature">$regions : array</pre>
+                <p><em>An array of valid regions.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; Array of valid regions.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(array  <span class="argument">$attributes = array()</span>, boolean  <span class="argument">$created = false</span>) : void</pre>
+                <p><em>Create a new part instance.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$attributes </td>
+                                <td><p>An array of attributes to build the part.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$created </td>
+                                <td><p>Whether the part has already been created.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_find" name="method_find" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">find()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">find(string  <span class="argument">$id</span>) : \Discord\Parts\Part|null</pre>
+                <p><em>Attempts to get the part from the servers and
+return it.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td><p>An ID to find a part with.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Discord.Parts.Part.html">\Discord\Parts\Part</a>|null
+                                            &mdash; <p>Either a Part if it was found or null.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_fill" name="method_fill" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">fill()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">fill(array  <span class="argument">$attributes</span>) : void</pre>
+                <p><em>Fills the parts attributes from an array.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$attributes </td>
+                                <td><p>An array of attributes to build the part.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_fresh" name="method_fresh" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">fresh()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">fresh() : boolean</pre>
+                <p><em>Gets a fresh copy of the part.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Whether the attempt to get a fresh copy succeeded or failed.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_save" name="method_save" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">save()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">save() : boolean</pre>
+                <p><em>Saves the part to the Discord servers.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Whether the attempt to save the part succeeded or failed.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_delete" name="method_delete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">delete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">delete() : boolean</pre>
+                <p><em>Deletes the part on the Discord servers.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Whether the attempt to delete the part succeeded or failed.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_clearCache" name="method_clearCache" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">clearCache()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">clearCache() : boolean</pre>
+                <p><em>Clears the attribute cache.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Whether the attempt to clear the cache succeeded or failed.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_checkForMutator" name="method_checkForMutator" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">checkForMutator()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">checkForMutator(string  <span class="argument">$key</span>, string  <span class="argument">$type</span>) : mixed</pre>
+                <p><em>Checks if there is a mutator present.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The attribute name to check.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>Either get or set.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; <p>Either a string if it is callable or false.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_replaceWithVariables" name="method_replaceWithVariables" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">replaceWithVariables()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">replaceWithVariables(string  <span class="argument">$string</span>) : string</pre>
+                <p><em>Replaces variables in string with syntax :{varname}.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$string </td>
+                                <td><p>A string with placeholders.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>A string with placeholders replaced.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_uriReplace" name="method_uriReplace" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">uriReplace()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">uriReplace(string  <span class="argument">$key</span>, array  <span class="argument">$params</span>) : string</pre>
+                <p><em>Replaces variables in one of the URIs.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>A key from URIs.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Parameters to replace placeholders with.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>A string with placeholders replaced.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#property_uris"><span class="namespace-wrapper">The URIs that can be replaced.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAttribute" name="method_getAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAttribute(string  <span class="argument">$key</span>) : mixed</pre>
+                <p><em>Gets an attribute on the part.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The key to the attribute.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; <p>Either the attribute if it exists or void.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setAttribute" name="method_setAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setAttribute(string  <span class="argument">$key</span>, mixed  <span class="argument">$value</span>) : void</pre>
+                <p><em>Sets an attribute on the part.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The key to the attribute.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td><p>The value of the attribute.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCache" name="method_setCache" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCache()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCache(string  <span class="argument">$key</span>, mixed  <span class="argument">$value</span>) : void</pre>
+                <p><em>Sets a cache attribute on the part.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The cache key.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td><p>The cache value.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_offsetGet" name="method_offsetGet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">offsetGet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">offsetGet(string  <span class="argument">$key</span>) : mixed</pre>
+                <p><em>Gets an attribute via key. Used for ArrayAccess.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The attribute key.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#method_getAttribute"><span class="namespace-wrapper">This function forwards onto getAttribute.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_offsetExists" name="method_offsetExists" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">offsetExists()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">offsetExists(string  <span class="argument">$key</span>) : boolean</pre>
+                <p><em>Checks if an attribute exists via key. Used for ArrayAccess.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The attribute key.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Whether the offset exists.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_offsetSet" name="method_offsetSet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">offsetSet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">offsetSet(string  <span class="argument">$key</span>, mixed  <span class="argument">$value</span>) : void</pre>
+                <p><em>Sets an attribute via key. Used for ArrayAccess.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The attribute key.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td><p>The attribute value.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#method_setAttribute"><span class="namespace-wrapper">This function forwards onto setAttribute.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_offsetUnset" name="method_offsetUnset" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">offsetUnset()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">offsetUnset(string  <span class="argument">$key</span>) : void</pre>
+                <p><em>Unsets an attribute via key. Used for ArrayAccess.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The attribute key.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_serialize" name="method_serialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">serialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">serialize() : mixed</pre>
+                <p><em>Serializes the data. Used for Serializable.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; <p>A string of serialized data.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_unserialize" name="method_unserialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">unserialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">unserialize(mixed  <span class="argument">$data</span>) : mixed</pre>
+                <p><em>Unserializes some data and stores it. Used for Serializable.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$data </td>
+                                <td><p>Some serialized data.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; <p>Unserialized data.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#method_setAttribute"><span class="namespace-wrapper">The unserialized data is stored with setAttribute.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_jsonSerialize" name="method_jsonSerialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">jsonSerialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">jsonSerialize() : array</pre>
+                <p><em>Provides data when the part is encoded into
+JSON. Used for JsonSerializable.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>An array of public attributes.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#method_getPublicAttributes"><span class="namespace-wrapper">This function forwards onto getPublicAttributes.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPublicAttributes" name="method_getPublicAttributes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPublicAttributes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPublicAttributes() : array</pre>
+                <p><em>Returns an array of public attributes.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>An array of public attributes.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___toString" name="method___toString" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__toString()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__toString() : string</pre>
+                <p><em>Converts the part to a string.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>A JSON string of attributes.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#method_getPublicAttributes"><span class="namespace-wrapper">This function encodes getPublicAttributes into JSON.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___debugInfo" name="method___debugInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__debugInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__debugInfo() : array</pre>
+                <p><em>Handles debug calls from var_dump and similar functions.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>An array of public attributes.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#method_getPublicAttributes"><span class="namespace-wrapper">This function forwards onto getPublicAttributes.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___get" name="method___get" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__get(string  <span class="argument">$key</span>) : mixed</pre>
+                <p><em>Handles dynamic get calls onto the part.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The attributes key.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; <p>The value of the attribute.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#method_getAttribute"><span class="namespace-wrapper">This function forwards onto getAttribute.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___set" name="method___set" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__set()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__set(string  <span class="argument">$key</span>, mixed  <span class="argument">$value</span>) : void</pre>
+                <p><em>Handles dynamic set calls onto the part.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$key </td>
+                                <td><p>The attributes key.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td><p>The attributes value.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Discord.Parts.Part.html"><div class="path-wrapper">\Discord\Parts\Part</div></a></dd>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#method_setAttribute"><span class="namespace-wrapper">This function forwards onto setAttribute.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_leave" name="method_leave" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">leave()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">leave() : boolean</pre>
+                <p><em>Alias for delete().</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Whether the attempt to leave succeeded or failed.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Part.html#method_delete"><span class="namespace-wrapper">This function is an alias for delete.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_transferOwnership" name="method_transferOwnership" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">transferOwnership()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">transferOwnership(\Discord\Parts\User\Member|integer  <span class="argument">$member</span>) : boolean</pre>
+                <p><em>Transfers ownership of the guild to
+another member.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Discord.Parts.User.Member.html">\Discord\Parts\User\Member</a>|integer</td>
+                                <td>$member </td>
+                                <td><p>The member to transfer ownership to.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Whether the attempt succeeded or failed.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMembersAttribute" name="method_getMembersAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getMembersAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMembersAttribute() : \Discord\Helpers\Collection</pre>
+                <p><em>Returns the guilds members.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Discord.Helpers.Collection.html">\Discord\Helpers\Collection</a>
+                                            &mdash; <p>A collection of members.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRolesAttribute" name="method_getRolesAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getRolesAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRolesAttribute() : \Discord\Helpers\Collection</pre>
+                <p><em>Returns the guilds roles.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Discord.Helpers.Collection.html">\Discord\Helpers\Collection</a>
+                                            &mdash; <p>A collection of roles.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getOwnerAttribute" name="method_getOwnerAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getOwnerAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getOwnerAttribute() : \Discord\Parts\User\User</pre>
+                <p><em>Returns the owner.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Discord.Parts.User.User.html">\Discord\Parts\User\User</a>
+                                            &mdash; <p>An User part.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getChannelsAttribute" name="method_getChannelsAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getChannelsAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getChannelsAttribute() : \Discord\Helpers\Collection</pre>
+                <p><em>Returns the guilds channels.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Discord.Helpers.Collection.html">\Discord\Helpers\Collection</a>
+                                            &mdash; <p>A collection of channels.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getBansAttribute" name="method_getBansAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getBansAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getBansAttribute() : \Discord\Helpers\Collection</pre>
+                <p><em>Returns the guilds bans.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Discord.Helpers.Collection.html">\Discord\Helpers\Collection</a>
+                                            &mdash; <p>A collection of bans.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getIconAttribute" name="method_getIconAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getIconAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getIconAttribute() : string|null</pre>
+                <p><em>Returns the guilds icon.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string|null
+                                            &mdash; <p>The URL to the guild icon or null.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getIconHashAttribute" name="method_getIconHashAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getIconHashAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getIconHashAttribute() : string|null</pre>
+                <p><em>Returns the guild icon hash.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string|null
+                                            &mdash; <p>The guild icon hash or null.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSplashAttribute" name="method_getSplashAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSplashAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSplashAttribute() : string|null</pre>
+                <p><em>Returns the guild splash.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string|null
+                                            &mdash; <p>The URL to the guild splash or null.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSplashHashAttribute" name="method_getSplashHashAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSplashHashAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSplashHashAttribute() : string|null</pre>
+                <p><em>Returns the guild splash hash.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string|null
+                                            &mdash; <p>The guild splash hash or null.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_validateRegion" name="method_validateRegion" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">validateRegion()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">validateRegion() : string</pre>
+                <p><em>Validates the specified region.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>Returns the region if it is valid or default.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/Discord.Parts.Guild.Guild.html#constant_REGION_DEFAULT"><span class="namespace-wrapper">The default region.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCreatableAttributes" name="method_getCreatableAttributes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCreatableAttributes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCreatableAttributes() </pre>
+                <p><em>{@inheritdoc}</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getUpdatableAttributes" name="method_getUpdatableAttributes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getUpdatableAttributes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getUpdatableAttributes() </pre>
+                <p><em>{@inheritdoc}</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Guild.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Parts/Guild/Guild.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Discord.html">\Discord</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on February 6th, 2016 at 02:36.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

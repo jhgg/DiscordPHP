@@ -7,25 +7,73 @@
     <meta name="author" content=""/>
     <meta name="description" content=""/>
 
-    <link href="css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prism.css" rel="stylesheet" media="all"/>
-    <link href="css/template.css" rel="stylesheet" media="all"/>
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
     
     <!--[if lt IE 9]>
-    <script src="js/html5.js"></script>
+    <script src="../js/html5.js"></script>
     <![endif]-->
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="js/ui/1.10.4/jquery-ui.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.smooth-scroll.js"></script>
-    <script src="js/prism.min.js"></script>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-    
-    <link rel="shortcut icon" href="images/favicon.ico"/>
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"/>
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"/>
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
 </head>
 <body>
 
@@ -35,16 +83,16 @@
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <i class="icon-ellipsis-vertical"></i>
             </a>
-            <a class="brand" href="index.html">API Documentation</a>
+            <a class="brand" href="../index.html">API Documentation</a>
 
             <div class="nav-collapse">
                 <ul class="nav pull-right">
                                         <li class="dropdown">
-                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
                             API Documentation <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                                                        <li><a href="namespaces/Discord.html">\Discord</a></li>
+                                                        <li><a href="../namespaces/Discord.html">\Discord</a></li>
                                                     </ul>
                     </li>
                                         <li class="dropdown" id="charts-menu">
@@ -53,7 +101,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="graphs/class.html">
+                                <a href="../graphs/class.html">
                                     <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
                                 </a>
                             </li>
@@ -65,17 +113,17 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="reports/errors.html">
+                                <a href="../reports/errors.html">
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">170</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="reports/markers.html">
+                                <a href="../reports/markers.html">
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="reports/deprecated.html">
+                                <a href="../reports/deprecated.html">
                                                                                                             <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
@@ -96,39 +144,39 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-414625945"></a>
-                                <a href="namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-835753130"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-414625945" class="accordion-body collapse in">
+            <div id="namespace-835753130" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-641258132"></a>
-                                <a href="namespaces/Discord.html" style="margin-left: 30px; padding-left: 0">Discord</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1388672657"></a>
+                                <a href="../namespaces/Discord.html" style="margin-left: 30px; padding-left: 0">Discord</a>
             </div>
-            <div id="namespace-641258132" class="accordion-body collapse ">
+            <div id="namespace-1388672657" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-498748075"></a>
-                                <a href="namespaces/Discord.Exceptions.html" style="margin-left: 30px; padding-left: 0">Exceptions</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2036385237"></a>
+                                <a href="../namespaces/Discord.Exceptions.html" style="margin-left: 30px; padding-left: 0">Exceptions</a>
             </div>
-            <div id="namespace-498748075" class="accordion-body collapse ">
+            <div id="namespace-2036385237" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.Exceptions.ContentTooLongException.html">ContentTooLongException</a></li>
-                                                    <li class="class"><a href="classes/Discord.Exceptions.DiscordRequestFailedException.html">DiscordRequestFailedException</a></li>
-                                                    <li class="class"><a href="classes/Discord.Exceptions.FileNotFoundException.html">FileNotFoundException</a></li>
-                                                    <li class="class"><a href="classes/Discord.Exceptions.InviteInvalidException.html">InviteInvalidException</a></li>
-                                                    <li class="class"><a href="classes/Discord.Exceptions.LoginFailedException.html">LoginFailedException</a></li>
-                                                    <li class="class"><a href="classes/Discord.Exceptions.PartRequestFailedException.html">PartRequestFailedException</a></li>
-                                                    <li class="class"><a href="classes/Discord.Exceptions.PasswordEmptyException.html">PasswordEmptyException</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.Exceptions.ContentTooLongException.html">ContentTooLongException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.DiscordRequestFailedException.html">DiscordRequestFailedException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.FileNotFoundException.html">FileNotFoundException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.InviteInvalidException.html">InviteInvalidException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.LoginFailedException.html">LoginFailedException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.PartRequestFailedException.html">PartRequestFailedException</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Exceptions.PasswordEmptyException.html">PasswordEmptyException</a></li>
                                             </ul>
                 </div>
             </div>
@@ -138,16 +186,16 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1867340132"></a>
-                                <a href="namespaces/Discord.Helpers.html" style="margin-left: 30px; padding-left: 0">Helpers</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1268212302"></a>
+                                <a href="../namespaces/Discord.Helpers.html" style="margin-left: 30px; padding-left: 0">Helpers</a>
             </div>
-            <div id="namespace-1867340132" class="accordion-body collapse ">
+            <div id="namespace-1268212302" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.Helpers.Collection.html">Collection</a></li>
-                                                    <li class="class"><a href="classes/Discord.Helpers.Guzzle.html">Guzzle</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.Helpers.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Helpers.Guzzle.html">Guzzle</a></li>
                                             </ul>
                 </div>
             </div>
@@ -157,46 +205,25 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1573254566"></a>
-                                <a href="namespaces/Discord.Parts.html" style="margin-left: 30px; padding-left: 0">Parts</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1923419655"></a>
+                                <a href="../namespaces/Discord.Parts.html" style="margin-left: 30px; padding-left: 0">Parts</a>
             </div>
-            <div id="namespace-1573254566" class="accordion-body collapse ">
+            <div id="namespace-1923419655" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1276876326"></a>
-                                <a href="namespaces/Discord.Parts.Channel.html" style="margin-left: 30px; padding-left: 0">Channel</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-490776899"></a>
+                                <a href="../namespaces/Discord.Parts.Channel.html" style="margin-left: 30px; padding-left: 0">Channel</a>
             </div>
-            <div id="namespace-1276876326" class="accordion-body collapse ">
+            <div id="namespace-490776899" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.Parts.Channel.Channel.html">Channel</a></li>
-                                                    <li class="class"><a href="classes/Discord.Parts.Channel.Message.html">Message</a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1597568752"></a>
-                                <a href="namespaces/Discord.Parts.Guild.html" style="margin-left: 30px; padding-left: 0">Guild</a>
-            </div>
-            <div id="namespace-1597568752" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.Parts.Guild.Ban.html">Ban</a></li>
-                                                    <li class="class"><a href="classes/Discord.Parts.Guild.Guild.html">Guild</a></li>
-                                                    <li class="class"><a href="classes/Discord.Parts.Guild.Invite.html">Invite</a></li>
-                                                    <li class="class"><a href="classes/Discord.Parts.Guild.Role.html">Role</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.Channel.Channel.html">Channel</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Channel.Message.html">Message</a></li>
                                             </ul>
                 </div>
             </div>
@@ -206,17 +233,18 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-395104582"></a>
-                                <a href="namespaces/Discord.Parts.Permissions.html" style="margin-left: 30px; padding-left: 0">Permissions</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1608974728"></a>
+                                <a href="../namespaces/Discord.Parts.Guild.html" style="margin-left: 30px; padding-left: 0">Guild</a>
             </div>
-            <div id="namespace-395104582" class="accordion-body collapse ">
+            <div id="namespace-1608974728" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.Parts.Permissions.ChannelPermission.html">ChannelPermission</a></li>
-                                                    <li class="class"><a href="classes/Discord.Parts.Permissions.Permission.html">Permission</a></li>
-                                                    <li class="class"><a href="classes/Discord.Parts.Permissions.RolePermission.html">RolePermission</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.Guild.Ban.html">Ban</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Guild.Guild.html">Guild</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Guild.Invite.html">Invite</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Guild.Role.html">Role</a></li>
                                             </ul>
                 </div>
             </div>
@@ -226,17 +254,17 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1015914656"></a>
-                                <a href="namespaces/Discord.Parts.User.html" style="margin-left: 30px; padding-left: 0">User</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1303627898"></a>
+                                <a href="../namespaces/Discord.Parts.Permissions.html" style="margin-left: 30px; padding-left: 0">Permissions</a>
             </div>
-            <div id="namespace-1015914656" class="accordion-body collapse ">
+            <div id="namespace-1303627898" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.Parts.User.Client.html">Client</a></li>
-                                                    <li class="class"><a href="classes/Discord.Parts.User.Member.html">Member</a></li>
-                                                    <li class="class"><a href="classes/Discord.Parts.User.User.html">User</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.Permissions.ChannelPermission.html">ChannelPermission</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Permissions.Permission.html">Permission</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.Permissions.RolePermission.html">RolePermission</a></li>
                                             </ul>
                 </div>
             </div>
@@ -246,25 +274,17 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-135135476"></a>
-                                <a href="namespaces/Discord.Parts.WebSockets.html" style="margin-left: 30px; padding-left: 0">WebSockets</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1934821699"></a>
+                                <a href="../namespaces/Discord.Parts.User.html" style="margin-left: 30px; padding-left: 0">User</a>
             </div>
-            <div id="namespace-135135476" class="accordion-body collapse ">
+            <div id="namespace-1934821699" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.Parts.WebSockets.PresenceUpdate.html">PresenceUpdate</a></li>
-                                                    <li class="class"><a href="classes/Discord.Parts.WebSockets.TypingStart.html">TypingStart</a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.Parts.Part.html">Part</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.User.Client.html">Client</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.User.Member.html">Member</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.User.User.html">User</a></li>
                                             </ul>
                 </div>
             </div>
@@ -274,44 +294,16 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-670205544"></a>
-                                <a href="namespaces/Discord.WebSockets.html" style="margin-left: 30px; padding-left: 0">WebSockets</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1234221737"></a>
+                                <a href="../namespaces/Discord.Parts.WebSockets.html" style="margin-left: 30px; padding-left: 0">WebSockets</a>
             </div>
-            <div id="namespace-670205544" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-784538007"></a>
-                                <a href="namespaces/Discord.WebSockets.Events.html" style="margin-left: 30px; padding-left: 0">Events</a>
-            </div>
-            <div id="namespace-784538007" class="accordion-body collapse ">
+            <div id="namespace-1234221737" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.ChannelCreate.html">ChannelCreate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.ChannelDelete.html">ChannelDelete</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.ChannelUpdate.html">ChannelUpdate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildBanAdd.html">GuildBanAdd</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildBanRemove.html">GuildBanRemove</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildCreate.html">GuildCreate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildDelete.html">GuildDelete</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildMemberAdd.html">GuildMemberAdd</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildMemberRemove.html">GuildMemberRemove</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildMemberUpdate.html">GuildMemberUpdate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildRoleCreate.html">GuildRoleCreate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildRoleDelete.html">GuildRoleDelete</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildRoleUpdate.html">GuildRoleUpdate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.GuildUpdate.html">GuildUpdate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.MessageCreate.html">MessageCreate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.MessageDelete.html">MessageDelete</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.MessageUpdate.html">MessageUpdate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.PresenceUpdate.html">PresenceUpdate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.TypingStart.html">TypingStart</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.UserSettingsUpdate.html">UserSettingsUpdate</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Events.VoiceStateUpdate.html">VoiceStateUpdate</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.WebSockets.PresenceUpdate.html">PresenceUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.Parts.WebSockets.TypingStart.html">TypingStart</a></li>
                                             </ul>
                 </div>
             </div>
@@ -320,9 +312,7 @@
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.WebSockets.Event.html">Event</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.Handlers.html">Handlers</a></li>
-                                                    <li class="class"><a href="classes/Discord.WebSockets.WebSocket.html">WebSocket</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.Parts.Part.html">Part</a></li>
                                             </ul>
                 </div>
             </div>
@@ -332,16 +322,44 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1476567247"></a>
-                                <a href="namespaces/Discord.WSClient.html" style="margin-left: 30px; padding-left: 0">WSClient</a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-112210830"></a>
+                                <a href="../namespaces/Discord.WebSockets.html" style="margin-left: 30px; padding-left: 0">WebSockets</a>
             </div>
-            <div id="namespace-1476567247" class="accordion-body collapse ">
+            <div id="namespace-112210830" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1324498668"></a>
+                                <a href="../namespaces/Discord.WebSockets.Events.html" style="margin-left: 30px; padding-left: 0">Events</a>
+            </div>
+            <div id="namespace-1324498668" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.WSClient.Factory.html">Factory</a></li>
-                                                    <li class="class"><a href="classes/Discord.WSClient.WebSocket.html">WebSocket</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.ChannelCreate.html">ChannelCreate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.ChannelDelete.html">ChannelDelete</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.ChannelUpdate.html">ChannelUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildBanAdd.html">GuildBanAdd</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildBanRemove.html">GuildBanRemove</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildCreate.html">GuildCreate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildDelete.html">GuildDelete</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildMemberAdd.html">GuildMemberAdd</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildMemberRemove.html">GuildMemberRemove</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildMemberUpdate.html">GuildMemberUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildRoleCreate.html">GuildRoleCreate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildRoleDelete.html">GuildRoleDelete</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildRoleUpdate.html">GuildRoleUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.GuildUpdate.html">GuildUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.MessageCreate.html">MessageCreate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.MessageDelete.html">MessageDelete</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.MessageUpdate.html">MessageUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.PresenceUpdate.html">PresenceUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.TypingStart.html">TypingStart</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.UserSettingsUpdate.html">UserSettingsUpdate</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Events.VoiceStateUpdate.html">VoiceStateUpdate</a></li>
                                             </ul>
                 </div>
             </div>
@@ -350,7 +368,37 @@
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="classes/Discord.Discord.html">Discord</a></li>
+                                                                                                    <li class="class"><a href="../classes/Discord.WebSockets.Event.html">Event</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.Handlers.html">Handlers</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WebSockets.WebSocket.html">WebSocket</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1888577"></a>
+                                <a href="../namespaces/Discord.WSClient.html" style="margin-left: 30px; padding-left: 0">WSClient</a>
+            </div>
+            <div id="namespace-1888577" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.WSClient.Factory.html">Factory</a></li>
+                                                    <li class="class"><a href="../classes/Discord.WSClient.WebSocket.html">WebSocket</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Discord.Discord.html">Discord</a></li>
                                             </ul>
                 </div>
             </div>
@@ -370,74 +418,56 @@
     <section class="row-fluid">
         <div class="span10 offset2">
             <div class="row-fluid">
-                <div class="span8 content namespace">
+                <div class="span8 content file">
                     <nav>
-                                                
-                                            </nav>
-                    <h1><small></small>\</h1>
+                                                                    </nav>
 
-                                        <h2>Namespaces</h2>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small>Exceptions</small>ContentTooLongException.php</h1>
+                    <p><em></em></p>
+                    
+
+                    
+                    
+                                        <h2>Classes</h2>
                     <table class="table table-hover">
-                                                    <tr>
-                                <td><a href="namespaces/Discord.html">Discord</a></td>
-                            </tr>
-                                            </table>
-                    
-                    
-                    
+                                            <tr>
+                            <td><a href="../classes/Discord.Exceptions.ContentTooLongException.html">ContentTooLongException</a></td>
+                            <td><em>Thrown when the Discord servers return `content longer than 2000 characters` after
+a REST request. The user must use WebSockets to obtain this data if they need it.</em></td>
+                        </tr>
+                                        </table>
                                     </div>
 
                 <aside class="span4 detailsbar">
                     <dl>
-                        <dt>Namespace hierarchy</dt>
-                        <dd class="hierarchy">
-                                                                                                                                                <div class="namespace-wrapper">\</div>
-                        </dd>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                        
+                        
                     </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                            </table>
+
                 </aside>
             </div>
 
-                        <div class="row-fluid">
-                <section class="span8 content namespace">
-                    <h2>Constants</h2>
-                </section>
-                <aside class="span4 detailsbar"></aside>
-            </div>
-
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="constant_DISCORD_TOKEN" name="constant_DISCORD_TOKEN" class="anchor"></a>
-            <article id="constant_DISCORD_TOKEN" class="constant">
-                <h3 class="">DISCORD_TOKEN</h3>
-                <pre class="signature">DISCORD_TOKEN</pre>
-                <p><em></em></p>
-                
-            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                        <dl>
-                                <dt>File</dt>
-                <dd><a href=""><div class="path-wrapper"></div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                            <p>Default</p>
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
-
-                            
+            
             
         </div>
     </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Exceptions/ContentTooLongException.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
 
     <footer class="row-fluid">
         <section class="span10 offset2">
@@ -448,7 +478,7 @@
                                                         <h1><i class="icon-code"></i></h1>
                             <div>
                                 <ul>
-                                                                            <li><a href="namespaces/Discord.html">\Discord</a></li>
+                                                                            <li><a href="../namespaces/Discord.html">\Discord</a></li>
                                                                     </ul>
                             </div>
                         </section>
@@ -456,7 +486,7 @@
                                                         <h1><i class="icon-bar-chart"></i></h1>
                             <div>
                                 <ul>
-                                    <li><a href="graphs/class.html">Class Hierarchy Diagram</a></li>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
                                 </ul>
                             </div>
                         </section>
@@ -464,8 +494,8 @@
                                                         <h1><i class="icon-pushpin"></i></h1>
                             <div>
                                 <ul>
-                                    <li><a href="reports/errors.html">Errors</a></li>
-                                    <li><a href="reports/markers.html">Markers</a></li>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
                                 </ul>
                             </div>
                         </section>
