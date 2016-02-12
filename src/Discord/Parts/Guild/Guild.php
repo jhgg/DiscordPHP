@@ -121,9 +121,15 @@ class Guild extends Part
             return $this->attributes_cache['members'];
         }
 
-        // Members aren't retrievable via REST anymore,
-        // they will be set if the websocket is used.
-        $this->attributes_cache = new Collection();
+        // TODO: When this is implemented, it will be paginated.
+        $request = Guzzle::get($this->replaceWithVariables('guilds/:id/members'));
+        $members = [];
+
+        foreach ($request as $index => $member) {
+            $members[$index] = new Member((array) $member, true);
+        }
+
+        $this->attributes_cache['members'] = new Collection($members);
 
         return $this->attributes_cache['members'];
     }
